@@ -1,0 +1,25 @@
+body {
+}
+
+h1 {
+    font-family: sans-serif;
+    color: green;
+}
+
+p {
+    color: grey;
+}
+
+img {
+    width: 100px;
+    border: 5px dashed blue;
+}
+
+ul{
+    width: 100px;
+}
+
+li{
+    padding: 0px;
+    border: 1px solid black;
+}
