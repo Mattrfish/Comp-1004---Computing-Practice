@@ -1,1 +1,1 @@
-# HTML-CSS-and-JAVA
+# Comp 1004 - Computing practice
