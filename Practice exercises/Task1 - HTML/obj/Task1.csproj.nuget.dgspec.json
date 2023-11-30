@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Matthew\\Github\\HTML-CSS-and-JAVA\\Practice exercises\\Task1\\Task1.csproj": {}
+    "C:\\Users\\Matthew\\Github\\HTML-CSS-and-JAVA\\Practice exercises\\Task1 - HTML\\Task1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Matthew\\Github\\HTML-CSS-and-JAVA\\Practice exercises\\Task1\\Task1.csproj": {
+    "C:\\Users\\Matthew\\Github\\HTML-CSS-and-JAVA\\Practice exercises\\Task1 - HTML\\Task1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Matthew\\Github\\HTML-CSS-and-JAVA\\Practice exercises\\Task1\\Task1.csproj",
+        "projectUniqueName": "C:\\Users\\Matthew\\Github\\HTML-CSS-and-JAVA\\Practice exercises\\Task1 - HTML\\Task1.csproj",
         "projectName": "Task1",
-        "projectPath": "C:\\Users\\Matthew\\Github\\HTML-CSS-and-JAVA\\Practice exercises\\Task1\\Task1.csproj",
+        "projectPath": "C:\\Users\\Matthew\\Github\\HTML-CSS-and-JAVA\\Practice exercises\\Task1 - HTML\\Task1.csproj",
         "packagesPath": "C:\\Users\\Matthew\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Matthew\\Github\\HTML-CSS-and-JAVA\\Practice exercises\\Task1\\obj\\",
+        "outputPath": "C:\\Users\\Matthew\\Github\\HTML-CSS-and-JAVA\\Practice exercises\\Task1 - HTML\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Matthew\\AppData\\Roaming\\NuGet\\NuGet.Config",
