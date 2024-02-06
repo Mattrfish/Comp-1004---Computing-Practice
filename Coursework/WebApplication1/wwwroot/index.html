@@ -1,11 +1,30 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Retro Golf</title>
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <h1>RetroGolf</h1>
-    <h2>Press enter To Start</h2>
+    <script src="js/script.js"></script>
+    <div class="container">
+        <h1>RetroGolf</h1>
+        <div class="container--flex">
+            <button onclick="startGame()" class="btn btn--1">START</button>
+            <button onclick="Options()" class="btn btn--2">Options</button>
+            <button onclick="Controls()" class="btn btn--3">Controls</button>
+            <button onclick="Customization()" class="btn btn--4">Customization</button>
+            <button onclick="Leaderboard()" class="btn btn--5">Leaderboard</button>
+        </div>
+    </div>
+
+    <div id="game-container" style="display: none;">
+        <!-- Your game elements (ball, hole, etc.) will go here -->
+        <div id="ball"></div>
+        <div id="hole"></div>
+    </div>
+
+
+
 </body>
 </html>

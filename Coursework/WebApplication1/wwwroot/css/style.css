@@ -1,0 +1,182 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+h1 {
+    position: absolute;
+    top: 100px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 100px;
+    color: lightgreen;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+button {
+    font: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+/*Color Modes for user*/
+:root {
+    --_hue: 100;
+    --_size: 3.0rem;
+    --_transitionSpeed: 400ms;
+    /* Light */
+    --bg--light: var(--_hue) 20% 7%;
+    --txt--light: var(--_hue) 30% 88%;
+    --accent--light: var(--_hue) 45% 47%;
+    --secondary--light: calc(var(--_hue) + 190) 20% 47%;
+    /* Dark */
+    --bg--dark: var(--_hue) 30% 97%;
+    --txt--dark: var(--_hue) 40% 5%;
+    --accent--dark: var(--_hue) 55% 50%;
+    --secondary--dark: calc(var(--_hue) + 190) 30% 57%;
+    /* Defaults*/
+    --bg: var(--bg--light);
+    --txt: var(--txt--light);
+    --accent: var(--accent--light);
+    --secondary: var(--secondary--light);
+    color-scheme: light;
+}
+
+@media (prefers-color-scheme: light){
+    :root {
+        --bg: var(--bg--dark);
+        --txt: var(--txt--dark);
+        --accent: var(--accent--dark);
+        --secondary: var(--secondary--dark);
+        color-scheme: dark;
+    }
+}
+
+body {
+    background-color: hsl(var(--bg));
+    color: hsl(var(--txt));
+    margin-bottom: 60px;
+    background-image: url("../img/Homepage_bg.jpg")
+}
+
+.container {
+    min-height: 100vh;
+    display: grid;
+    gap: 2rem;
+    padding: 1rem;
+    place-items: center;
+    place-content: center;
+}
+
+.container--flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    place-items: center;
+    justify-content: center;
+    place-content: center;
+}
+
+.btn {
+    font-size: var(--_size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5em;
+    background-color: hsl(var(--accent));
+    text-decoration: none;
+    padding: .4em 1.4em;
+    border-radius: .2em;
+    box-shadow:
+        .05em .1em .9em hsl(var(--accent) / .3),
+        0 0 0 -.1em hsl(var(--bg)),
+        0 0 0 -.2em hsl(var(--accent));
+    transition: 
+        box-shadow var(--_transitionSpeed) cubic-bezier(0.66, -0.2,
+        0.27, 1.15),
+        background-color var(--_transitionSpeed) cubic-bezier(0.66,
+        -0.2, 0.27, 1.15);
+    
+
+        
+
+}
+
+.btn--1 {
+    position: absolute;
+    top: 300px;
+    
+}
+
+.btn--2 {
+    --accent: var(--secondary);
+    position: absolute;
+    top: 400px;
+    
+}
+
+
+.btn--3 {
+    --accent: var(--secondary);
+    position: absolute;
+    top: 500px;
+    
+    
+}
+.btn--4 {
+    --accent: var(--secondary);
+    position: absolute;
+    top: 600px;
+    
+    
+}
+.btn--5 {
+    --accent: var(--secondary);
+    position: absolute;
+    top: 700px;
+    
+}
+
+
+
+
+.btn:where(:active, :hover) {
+    background-color: hsl(var(--accent) / .8);
+    box-shadow: 0 0 0 hsl(var(--accent) / .3), 
+        0 0 0 .2em hsl(var(--bg)), 
+        0 0 0 .4em hsl(var(--accent) /.5);
+}
+
+.btn:focus{
+    outline: none;
+}
+
+
+.btn:focus-visible {
+    box-shadow: 0 0 0 hsl(var(--accent) / .3), 
+        0 0 0 .2em hsl(var(--bg)), 
+        0 0 0 .4em hsl(var(--accent) / .5);
+}
+
+
+
+
+
+
+
+
