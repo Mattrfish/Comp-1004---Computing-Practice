@@ -43,18 +43,27 @@
     <!--Home Page Ends Here-->
 
     <!--Game Page Starts Here-->
-    <section id="game-page" style="display:none">
-       <div>
-         <canvas id="canvas" ></canvas><br>
-         <canvas id="canvas2" ></canvas> <br>
-       </div>  
-        <div id="objContainer">
-            <div id="powerBar"></div>
-            <div id="aim-ind"></div>
-            <div id="ball"></div>
-            <div id="hole"></div>
-        </div>
-    </section>
+  <section id="game-page" style="display:none">
+      <div>
+          <canvas id="canvas"></canvas><br>
+          <canvas id="canvas2"></canvas> <br>
+      </div>
+      <div id="objContainer">
+          <div id="bar"></div>
+          <div id="wall"></div>
+          <div id="ball"></div>
+          <div id="hole"></div>
+      </div>
+      <button onclick="shootBall()" id="shootButton">Shoot</button>
+      <div id="speedInput">
+          <label for="speedInput">Speed:</label>
+          <input type="number" id="speedInput1" value="5" min="1" max="10">
+      </div>
+      <div id="dirInput">
+          <label for="dirInput">Direction:</label>
+          <input type="number" id="dirInput1" value="45" min="0" max="360">
+      </div>
+  </section>
 
     <!--Game Page Ends Here-->
 

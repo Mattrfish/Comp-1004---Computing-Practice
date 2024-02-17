@@ -1,40 +1,30 @@
-﻿let ballHeight = 5;
-let ballWidth = 10;
-let ballX = 20;
-let ballY = 10;
-
-let holeHeight = 5;
-let holeWidth = 10;
-let holeX = 280;
-let holeY = 125;
-
-let spacePressed = false;
-
-
+﻿
 let hole = document.getElementById("hole")
 let ball = document.getElementById("ball")
-let bar = document.getElementById("powerBar");
-
-
+let wall = document.getElementById("wall");
 
 ball = {
-    x: ballX,
-    y: ballY,
-    width: ballWidth,
-    height: ballHeight
+    x: 20,
+    y: 10,
+    width: 10,
+    height: 5,
 }
 
 hole = {
-    x: holeX,
-    y: holeY,
-    width: holeWidth,
-    height: holeHeight
-
+    x: 280,
+    y: 125,
+    width: 10,
+    height: 5
 }
 
 
-const powerBarHeight = 100;
-let powerBarPostition = 0;
+wall = {
+    x: 50,
+    y: 0,
+    width: 50,
+    height: 100,
+}
+
 function startGame() {
     // alert("Starting Game!");
     let menu = document.getElementById("home-page");
@@ -45,7 +35,7 @@ function startGame() {
     drawScore();
     drawHole();
     drawBall();
-
+    drawWall();
     
 }
 
@@ -70,30 +60,6 @@ function drawScore() {
     const canvas = document.getElementById("canvas2");
     const context2 = canvas.getContext("2d");
 
-    context2.font = "20px Arial";
-    context2.fillText("Level", 20, 70);
-    context2.fillText("1", 90, 70);
-    context2.fillText("2", 115, 70);
-    context2.fillText("3", 140, 70);
-    context2.fillText("4", 165, 70);
-    context2.fillText("5", 190, 70);
-    context2.fillText("6", 215, 70);
-    context2.fillText("7", 240, 70);
-    context2.fillText("8", 265, 70);
-    context2.fillText("9", 290, 70);
-    context2.fillText("Total", 320, 70);
-    context2.fillText("Score", 20, 100);
-    context2.fillText("-", 90, 100);
-    context2.fillText("-", 115, 100);
-    context2.fillText("-", 140, 100);
-    context2.fillText("-", 165, 100);
-    context2.fillText("-", 190, 100); 
-    context2.fillText("-", 215, 100);
-    context2.fillText("-", 240, 100);
-    context2.fillText("-", 265, 100);
-    context2.fillText("-", 290, 100);
-    
-    
 }
 
 function drawHole() {
@@ -107,7 +73,7 @@ function drawHole() {
 function drawBall() {
     const canvas = document.getElementById("canvas");
     const context = canvas.getContext("2d");
-    /*Draws Ball on Canvas*/
+
     context.fillStyle = "white";
     context.fillRect(ball.x, ball.y, ball.width, ball.height);
 
@@ -116,15 +82,64 @@ function drawBall() {
 function moveBall(dx, dy) {
     const canvas = document.getElementById("canvas");
     const context = canvas.getContext("2d");
+
+    context.clearRect(0, 0, canvas.width, canvas.height);
+
+   
     context.clearRect(ball.x, ball.y, ball.width, ball.height);
 
     // Update the ball's position by adding dx and dy
     ball.x += dx;
     ball.y += dy;
 
-    // Redraw ball position
+    if (ball.x < wall.x + wall.width &&
+        ball.x + ball.width > wall.x &&
+        ball.y < wall.y + wall.height &&
+        ball.y + ball.height > wall.y) {
+        // Ball collides with the wall, adjust the position or take appropriate action
+        // For now, let's just reset the ball position
+        ball.x = 20;
+        ball.y = 10;
+    }
+
+    // Redraw necessary elements
+    drawWall(); // Redraw the wall before the ball to ensure it's visible
     drawBall();
+    drawHole();
 }
+
+
+function drawWall() {
+    const canvas = document.getElementById("canvas");
+    const context = canvas.getContext("2d");
+
+    context.fillStyle = "black";
+    context.fillRect(wall.x, wall.y, wall.width, wall.height);
+}
+
+
+
+function shootBall() {
+    const speedInput = document.getElementById("speedInput1");
+    const dirInput = document.getElementById("dirInput1");
+
+    let shotSpeed = parseFloat(speedInput.value); // Get the speed value entered by the player
+    let shotDirection = parseFloat(dirInput.value); // Get the direction value entered by the player
+
+
+    // Convert the direction from degrees to radians
+    let radianAngle = (shotDirection * Math.PI) / 180;
+  
+   
+    let newShotx = Math.cos(radianAngle) * shotSpeed;
+    let newShoty = Math.sin(radianAngle) * shotSpeed;
+    
+
+    moveBall(newShotx, newShoty);
+
+    resetGame();
+}
+
 
 
 
