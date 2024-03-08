@@ -1,30 +1,37 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retro Golf</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <script src="js/script.js"></script>
-    <div class="container">
-        <h1>RetroGolf</h1>
-        <div class="container--flex">
-            <button onclick="startGame()" class="btn btn--1">START</button>
-            <button onclick="Options()" class="btn btn--2">Options</button>
-            <button onclick="Controls()" class="btn btn--3">Controls</button>
-            <button onclick="Customization()" class="btn btn--4">Customization</button>
-            <button onclick="Leaderboard()" class="btn btn--5">Leaderboard</button>
+    <section id="homePage">
+        <header>
+            <h1>Retro Golf</h1>
+            <p>Challenge yourself in this nostalgic golf experience!</p>
+        </header>
+        <div class="menu">
+            <button id="startButton">Start</button>
+            <button id="optionsButton">Options</button>
+            <button id="lboardButton">Leaderboard</button>
         </div>
+
+    </section>
+
+    <main>
+        <canvas id="canvas"></canvas>
+        <button id="playButton">Press play to continue</button>
+    </main>
+
+    <div id="lboard" style="display: none;">
+        <h2>Leaderboard</h2>
+        <ul id="lboardList"></ul>
+        <input type="text" id="playerNameInput" placeholder="Enter your name">
+        <button id="saveButton">Save Score</button>
+        <button id="exitButton">Exit Leaderboard</button>
     </div>
-
-    <div id="game-container" style="display: none;">
-        <!-- Your game elements (ball, hole, etc.) will go here -->
-        <div id="ball"></div>
-        <div id="hole"></div>
-    </div>
-
-
-
+    <script src="js/script.js"></script>
 </body>
 </html>

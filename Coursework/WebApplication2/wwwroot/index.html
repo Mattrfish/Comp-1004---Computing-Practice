@@ -1,81 +1,47 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
     <title>Retro Golf</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js"></script>
 </head>
 <body>
-  <!--Create The Home Page-->
-  <section id="home-page"> 
-   <div class="homepage-container">
-        <header>
-            <h1>Retro Golf</h1>
-            <p>Challenge yourself in this nostalgic golf experience!</p>
-        </header>
+    <!--Create The Home Page-->
+    <section id="homePage">
+        <div class="homepage-container">
+            <header>
+                <h1>Retro Golf</h1>
+                <p>Challenge yourself in this nostalgic golf experience!</p>
+            </header>
 
-        <section id="start-bn" class="start-section">
-            <h2>Start Game</h2>
-            <p>Click the button below to start playing!</p>
-            <button onclick="startGame()" class="btn btn-start">Start Game</button>
-        </section>
+            <section class="start-section">
+                <h2>Start Game</h2>
+                <p>Click the button below to start playing!</p>
+                <button id="startButton" class="btn btn-start">Start Game</button>
+            </section>
 
-        <section id="options-bn" class="options-section">
-            <h2>Options</h2>
-            <p>Customize your game settings.</p>
-            <button onclick="goToOptions()" class="btn btn-options">Go to Options</button>
-        </section>
+            <section id="options-bn" class="options-section">
+                <h2>Options</h2>
+                <p>Customize your game settings.</p>
+                <button class="btn btn-options">Options</button>
+            </section>
 
-        <section id="lead-bn" class="leaderboard-section">
-            <h2>Leaderboard</h2>
-            <p>Check out the top players.</p>
-            <button onclick="goToLeaderboard()" class="btn btn-leaderboard">View Leaderboard</button>
-        </section>
+            <section id="lead-bn" class="leaderboard-section">
+                <h2>Leaderboard</h2>
+                <p>Check out the top players.</p>
+                <button class="btn btn-leaderboard">View Leaderboard</button>
+            </section>
 
-        <footer>
-            <p>&copy; 2024 Retro Golf. All rights reserved.</p>
-        </footer>
-    </div> 
-   </section> 
-
-    
-    <!--Home Page Ends Here-->
-
-    <!--Game Page Starts Here-->
-  <section id="game-page" style="display:none">
-      <div>
-          <canvas id="canvas"></canvas><br>
-          <canvas id="canvas2"></canvas> <br>
-      </div>
-      <div id="objContainer">
-          <div id="bar"></div>
-          <div id="wall"></div>
-          <div id="ball"></div>
-          <div id="hole"></div>
-      </div>
-      <button onclick="shootBall()" id="shootButton">Shoot</button>
-      <div id="speedInput">
-          <label for="speedInput">Speed:</label>
-          <input type="number" id="speedInput1" value="5" min="1" max="10">
-      </div>
-      <div id="dirInput">
-          <label for="dirInput">Direction:</label>
-          <input type="number" id="dirInput1" value="45" min="0" max="360">
-      </div>
-  </section>
-
-    <!--Game Page Ends Here-->
-
-    <!--Options Menu Starts Here-->
-    <section id="options-page" style="display:none"> 
-            
+            <footer>
+                <p>&copy; 2024 Retro Golf. All rights reserved.</p>
+            </footer>
+        </div>
     </section>
+    <script src="js/script.js"></script>
+    <canvas id="canvas"></canvas>
+    <p id="scoreDisplay">Score: 0</p>
 
-    <!--Options Menu Ends Here-->
 
-    <!--Leaderboard Starts Here-->
-    <!--Leaderboard Ends Here-->
 
 </body>
 </html>

@@ -27,6 +27,7 @@ body {
 
     /*Sets menu button background*/
     .homepage-container {
+        display: block;
         max-width: 600px;
         padding: 20px;
         text-align: center;
@@ -37,18 +38,20 @@ body {
 
     /*Sets baclground of header menu*/
     header {
+        display: block;
         background-color: #72aee6; /* Light blue header */
         color: #fff;
         padding: 20px;
         border-radius: 10px;
         margin-bottom: 20px;
     }
-        /* Header Text*/
-        header h1 {
-            font-size: 2em;
-            margin-bottom: 10px;
-            color: #fff; /* White text for header */
-        }
+       /* Header Text*/
+    header h1 {
+        display: block;
+        font-size: 2em;
+        margin-bottom: 10px;
+        color: white; /* White text for header */
+    }
 
     /* Menu Buttons*/
     .btn {
@@ -79,25 +82,21 @@ body {
 
 
     /*Game Canvas Set*/
-    #canvas {
-        width: 500px; 
-        height: 500px;
-        border-style: solid;
-        background: #00e600;
-    }
-    /*Score Canvas Set*/
+#canvas {
+    display: none;
+    width: 400px;
+    height: 600px;
+    border-style: solid;
+    background: #99cc66;
+}
+    
+#scoreDisplay {
+    display: none;
+
+}
   
 
-    #speedInput {
-        font-size: 30px;
-        width: 300px;
-        height: 50px;
-    }
-    #dirInput {
-        font-size: 30px;
-        width: 300px;
-        height: 50px;
-    }
+ 
    
 
  

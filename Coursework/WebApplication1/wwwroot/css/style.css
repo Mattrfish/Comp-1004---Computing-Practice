@@ -1,182 +1,87 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-h1 {
-    position: absolute;
-    top: 100px;
-    font-weight: bold;
-    text-align: center;
-    font-size: 100px;
-    color: lightgreen;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-}
-
-*, *::after, *::before {
-    box-sizing: border-box;
-    padding: 0;
+body, html {
     margin: 0;
-}
-button {
-    font: inherit;
-    border: none;
-    cursor: pointer;
-}
-
-/*Color Modes for user*/
-:root {
-    --_hue: 100;
-    --_size: 3.0rem;
-    --_transitionSpeed: 400ms;
-    /* Light */
-    --bg--light: var(--_hue) 20% 7%;
-    --txt--light: var(--_hue) 30% 88%;
-    --accent--light: var(--_hue) 45% 47%;
-    --secondary--light: calc(var(--_hue) + 190) 20% 47%;
-    /* Dark */
-    --bg--dark: var(--_hue) 30% 97%;
-    --txt--dark: var(--_hue) 40% 5%;
-    --accent--dark: var(--_hue) 55% 50%;
-    --secondary--dark: calc(var(--_hue) + 190) 30% 57%;
-    /* Defaults*/
-    --bg: var(--bg--light);
-    --txt: var(--txt--light);
-    --accent: var(--accent--light);
-    --secondary: var(--secondary--light);
-    color-scheme: light;
-}
-
-@media (prefers-color-scheme: light){
-    :root {
-        --bg: var(--bg--dark);
-        --txt: var(--txt--dark);
-        --accent: var(--accent--dark);
-        --secondary: var(--secondary--dark);
-        color-scheme: dark;
-    }
-}
-
-body {
-    background-color: hsl(var(--bg));
-    color: hsl(var(--txt));
-    margin-bottom: 60px;
-    background-image: url("../img/Homepage_bg.jpg")
-}
-
-.container {
-    min-height: 100vh;
-    display: grid;
-    gap: 2rem;
-    padding: 1rem;
-    place-items: center;
-    place-content: center;
-}
-
-.container--flex {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    place-items: center;
-    justify-content: center;
-    place-content: center;
-}
-
-.btn {
-    font-size: var(--_size);
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Disable vertical scrolling */
+    font-family: cursive;
+    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: .5em;
-    background-color: hsl(var(--accent));
-    text-decoration: none;
-    padding: .4em 1.4em;
-    border-radius: .2em;
-    box-shadow:
-        .05em .1em .9em hsl(var(--accent) / .3),
-        0 0 0 -.1em hsl(var(--bg)),
-        0 0 0 -.2em hsl(var(--accent));
-    transition: 
-        box-shadow var(--_transitionSpeed) cubic-bezier(0.66, -0.2,
-        0.27, 1.15),
-        background-color var(--_transitionSpeed) cubic-bezier(0.66,
-        -0.2, 0.27, 1.15);
-    
+    background-color: #e0e0e0;
+    background-image: url("../img/menu_2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
 
+header {
+    background-color: #72aee6;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+    header h1 {
+        font-size: 2em;
+        margin-bottom: 10px;
+    }
+
+canvas {
+    border: 2px solid black;
+    background-color: #99cc66;
+    display: none; /* Initially hidden */
+    margin: auto; /* Center canvas horizontally */
+    width: 70vw; /* Set canvas width to 70% of viewport width */
+    height: 70vh; /* Set canvas height to 70% of viewport height */
+    box-sizing: border-box; /* Include border in the size calculation */
+    padding-bottom: 4px; /* Add padding to account for border */
+}
+
+.menu {
+    max-width: 600px;
+    margin-top: 100px; /* Add space between header and menu */
+    padding: 20px;
+    text-align: center;
+    background-color: #f0d79a; /* Light yellow background for the container */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Slight shadow */
+}
+
+    .menu button {
+        font-size: 1.2em;
+        padding: 15px 30px;
+        cursor: pointer;
+        background-color: #9a7d4f; /* Brownish color for buttons */
+        color: #fff;
+        border: 2px solid #9a7d4f;
+        border-radius: 8px;
+        transition: background-color 0.3s;
+        margin-bottom: 30px;
+    }
+
+        .menu button:hover {
+            background-color: #6b5733;
+        }
+
+
+
+#startButton,
+#optionsButton,
+#leaderboardButton {
+    width: 100%;
+    border: none; /* Remove border for individual buttons */
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#playButton {
+    display: none;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
         
-
 }
-
-.btn--1 {
-    position: absolute;
-    top: 300px;
-    
-}
-
-.btn--2 {
-    --accent: var(--secondary);
-    position: absolute;
-    top: 400px;
-    
-}
-
-
-.btn--3 {
-    --accent: var(--secondary);
-    position: absolute;
-    top: 500px;
-    
-    
-}
-.btn--4 {
-    --accent: var(--secondary);
-    position: absolute;
-    top: 600px;
-    
-    
-}
-.btn--5 {
-    --accent: var(--secondary);
-    position: absolute;
-    top: 700px;
-    
-}
-
-
-
-
-.btn:where(:active, :hover) {
-    background-color: hsl(var(--accent) / .8);
-    box-shadow: 0 0 0 hsl(var(--accent) / .3), 
-        0 0 0 .2em hsl(var(--bg)), 
-        0 0 0 .4em hsl(var(--accent) /.5);
-}
-
-.btn:focus{
-    outline: none;
-}
-
-
-.btn:focus-visible {
-    box-shadow: 0 0 0 hsl(var(--accent) / .3), 
-        0 0 0 .2em hsl(var(--bg)), 
-        0 0 0 .4em hsl(var(--accent) / .5);
-}
-
-
-
-
-
-
-
-
