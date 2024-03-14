@@ -4,14 +4,14 @@
     const startButton = document.getElementById("startButton");
     const menu = document.getElementById("homePage");
     const playButton = document.getElementById("playButton");
-    const lboardButton = document.getElementById("lboardButton"); 
-    const lboard = document.getElementById("lboard"); 
-    const exitButton = document.getElementById("exitButton"); 
-    const lboardList = document.getElementById("lboardList"); 
-    const playerNameInput = document.getElementById("playerNameInput"); 
-    const saveButton = document.getElementById("saveButton"); 
+    const lbButton = document.getElementById("lbButton"); 
+    const lbinp = document.getElementById("lbinp");
+    const lbPage = document.getElementById("lbPage");
+    const opButton = document.getElementById("opButton");
+    const opPage = document.getElementById("opPage");
+    const ballCol = document.getElementById("ballColorPicker");
+    const saveOp = document.getElementById("saveOp");
     canvas.style.display = "none";
-    lboard.style.display = "none";
     // Set canvas size
     canvas.width = window.innerWidth * 0.8 ; // Adjust as needed
     canvas.height = window.innerHeight * 0.8; // Adjust as needed
@@ -23,7 +23,7 @@
         x: 50,
         y: 50,
         radius: 10,
-        color: "white",
+        color: ballCol.value,
         velocityX: 0, // Initial velocity set to 0
         velocityY: 0
     };
@@ -36,6 +36,7 @@
         color: "black"
     };
 
+    //water properties
     const water = {
         x: 200,
         y: 200,
@@ -44,7 +45,7 @@
 
     };
 
-    
+    //sand properties
     const sand = {
         x: 400,
         y: 400,
@@ -69,11 +70,16 @@
     let dragStart = { x: 0, y: 0 };
 
     // Score variables
-    let score = 0;
-    const levScore = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    let i = 0;
-    let counter = 8;
-    
+    let score = 0; //score each level, gets added to levscore
+    const levScore = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; //level score for player
+    let i = 0; //used for loops
+    let counter = 0; //counts each level 
+    let totScore = 0; //total score for player
+
+    //time variables
+    let startTime;
+    let endTime;
+    let minsPlayed;
    
 
     // Function to start the game
@@ -127,7 +133,7 @@
         // Update ball position
         ball.x += ball.velocityX;
         ball.y += ball.velocityY;
-
+        //update border position
         var rborder = canvas.width - ball.radius;
         var bborder = canvas.height - ball.radius;
         var lborder = 0 + ball.radius;
@@ -159,12 +165,15 @@
             counter++;
             if (counter == 9) {
                 endGame();
+                
             }
             score++;
             i += 1;
             levScore[i] = score;
+            totScore += score;
             score = 0; // Reset score
             isDragging = false;
+            
             alert("Level Complete! Press to Continue")
             reset()
             randomizeTerrain(); // Randomize water and sand positions
@@ -294,6 +303,7 @@
         ctx.fillText("7- " + levScore[7], 400, 20);
         ctx.fillText("8- " + levScore[8], 440, 20);
         ctx.fillText("9- " + levScore[9], 480, 20);
+        ctx.fillText("Total: " + totScore, 520, 20);
     }
 
     // Game loop
@@ -301,65 +311,130 @@
         update();
         displayScore(); // Display score on each frame
         requestAnimationFrame(gameLoop);
+        if (timeLimitEnabled) {
+            if (timeRemaining <= 0) {
+                endGame(); // Call endGame function when time runs out
+                return;
+            }
+            timeRemaining -= deltaTime; // Subtract deltaTime from timeRemainin
+        }
     }
-
+    
     // Event listener for the start button
-    startButton.addEventListener("click", startGame);
+    startButton.addEventListener("click", function () {
+        // Record the current time when the player clicks "Start"
+        startTime = new Date();
+        startGame(); // Start the game
+    });
 
     
     function endGame() {
         canvas.style.display = "none";
-        lboard.style.display = "block";
+        lbinp.style.display = "block";
+        //Record the current time when the player finishes the last level
+        endTime = new Date();
+        const timeDif = endTime - startTime;
+        minsPlayed = Math.floor(timeDif / 60000);
     }
 
-    exitButton.addEventListener("click", function () {
-        lboard.style.display = "none";
-        menu.style.display = "block";
-        const totalScore = calculateTotalScore();
-        promptAndUpdateLeaderboard(totalScore);
+    // Function to handle form submission
+    document.getElementById("lbForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent form submission
+        let playerName = document.getElementById("pname").value;
+        let playerScore = totScore; 
+        saveToLb(playerName, playerScore, minsPlayed);
+        displayLb();
+        resetGame();
     });
 
-    let leaderboard = [];
-
-    // Load existing leaderboard data from localStorage, if any
-    if (localStorage.getItem("leaderboard")) {
-        leaderboard = JSON.parse(localStorage.getItem("leaderboard"));
-    }
-
-    function updateLeaderboard(playerName, totalScore) {
-        leaderboard.push({ name: playerName, score: totalScore });
-        // Sort leaderboard by score in descending order
-        leaderboard.sort((a, b) => b.score - a.score);
-        // Save leaderboard to localStorage
-        localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
-    }
-
-    // Function to prompt player for name and update leaderboard
-    function promptAndUpdateLeaderboard(totalScore) {
-        const playerName = prompt("Congratulations! You've completed the game! Please enter your name:");
-        if (playerName) {
-            updateLeaderboard(playerName, totalScore);
-            displayLeaderboard();
+    // Function to save player name and score to local storage
+    function saveToLb(name, score, mins) {
+        let leaderboardData = JSON.parse(localStorage.getItem('leaderboard')) || [];
+        let playerData = { name: name, score: score, mins: mins };
+        leaderboardData.push(playerData);
+        leaderboardData.sort((a, b) => a.score - b.score); // Sort by score ascending
+        if (leaderboardData.length > 10) {
+            leaderboardData.pop(); // Keep only top 10 players
         }
+        localStorage.setItem('leaderboard', JSON.stringify(leaderboardData)); // Save to local storage
     }
 
-    // Function to display leaderboard
-    function displayLeaderboard() {
-        let leaderboardHTML = "<h2>Leaderboard</h2>";
-        leaderboard.forEach((entry, index) => {
-            leaderboardHTML += `<p>${index + 1}. ${entry.name}: ${entry.score}</p>`;
+    function displayLb() {
+        document.getElementById("lbinp").style.display = "none"; // Hide the input form
+        document.getElementById("lbPage").style.display = "block"; // Show the leaderboard
+        document.getElementById("homePage").style.display = "none";
+        let leaderboardList = document.getElementById("leaderboardList");
+        leaderboardList.innerHTML = ''; // Clear previous entries
+
+        let heading = document.createElement("li");
+        heading.textContent = "Name   |   Score   |   Time Spent Playing"; 
+        leaderboardList.appendChild(heading);
+
+        let leaderboardData = JSON.parse(localStorage.getItem('leaderboard')) || [];
+        leaderboardData.forEach((player, index) => {
+            let listItem = document.createElement("li");
+            listItem.textContent = `${index + 1}. ${player.name} | ${player.score} | ${player.mins} minutes`;
+            leaderboardList.appendChild(listItem);
         });
-        // Display leaderboard in a separate div or alert
-        // For example:
-        alert(leaderboardHTML);
+
+        
+
     }
 
-    // Function to calculate total score from all levels
-    function calculateTotalScore() {
-        let totalScore = 0;
-        for (let i = 1; i <= 9; i++) {
-            totalScore += levScore[i];
-        }
-        return totalScore;
+    document.getElementById("exit").addEventListener("click", function () {
+        // Hide leaderboard
+        lbPage.style.display = "none";
+        // Display menu
+        menu.style.display = "block";
+    });
+
+    function resetGame() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        score = 0;
+        levScore.fill(0);
+        totScore = 0;
+        counter = 0;
+        i = 0;
+        
+        reset();
+
     }
+
+    document.getElementById("lbButton").addEventListener("click", displayLb);
+
+    
+        // Add event listener for exit button
+        const exitButton = document.getElementById("exButton");
+        exitButton.addEventListener("click", function () {
+            if (confirm("Are you sure you want to exit the game?")) {
+                window.close(); // Close the window
+            }
+        });
+
+    
+    opButton.addEventListener("click", function () {
+        menu.style.display = "none";
+        opPage.style.display = "block";
+    });
+
+    document.getElementById("exit1").addEventListener("click", function () {
+        // Hide options
+        opPage.style.display = "none";
+        // Display menu
+        menu.style.display = "block";
+    });
+
+    document.getElementById("saveOp").addEventListener("click", function () {
+        saveOptions();
+    });
+
+        function saveOptions() {
+
+            ball.color = ballCol.value;
+            const timeLimitEnabled = document.getElementById("timeLimitCheckbox").checked;
+            
+            localStorage.setItem("timeLimitEnabled", timeLimitEnabled);
+
+        }
+
 });

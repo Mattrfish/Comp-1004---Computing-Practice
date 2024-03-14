@@ -5,14 +5,13 @@ body, html {
     overflow: hidden; /* Disable vertical scrolling */
     font-family: cursive;
     font-size: 16px;
-    display: flex;
+    display: flow;
     align-items: center;
     justify-content: center;
     background-color: #e0e0e0;
-    background-image: url("../img/menu_2.jpg");
+    background-image: url("../img/golf.jpg");
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
+    display: flex;
 }
 
 header {
@@ -22,14 +21,22 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
+    width: 70vw; /* Set width to 70% of viewport width */
+    max-width: 600px; /* Limit maximum width */
+    margin: 20px auto; /* Center horizontally and add space from the top */
 }
 
-    header h1 {
+     header h1 {
+        display: block;
         font-size: 2em;
         margin-bottom: 10px;
+        color: white; /* White text for header */
     }
 
+  
+
 canvas {
+   
     border: 2px solid black;
     background-color: #99cc66;
     display: none; /* Initially hidden */
@@ -38,11 +45,13 @@ canvas {
     height: 70vh; /* Set canvas height to 70% of viewport height */
     box-sizing: border-box; /* Include border in the size calculation */
     padding-bottom: 4px; /* Add padding to account for border */
+    
 }
 
 .menu {
     max-width: 600px;
-    margin-top: 100px; /* Add space between header and menu */
+    width: 70vw; /* Set width to 70% of viewport width */
+    margin: 50px auto; /* Center menu horizontally and add space from the top */
     padding: 20px;
     text-align: center;
     background-color: #f0d79a; /* Light yellow background for the container */
@@ -51,26 +60,44 @@ canvas {
 }
 
     .menu button {
-        font-size: 1.2em;
-        padding: 15px 30px;
+
+        display: block; /* Ensure buttons are stacked */
+        width: 100%;
+        font-size: 1.2em; /* Set font size */
+        padding: 15px 30px; /* Set padding for buttons */
         cursor: pointer;
         background-color: #9a7d4f; /* Brownish color for buttons */
         color: #fff;
         border: 2px solid #9a7d4f;
         border-radius: 8px;
         transition: background-color 0.3s;
-        margin-bottom: 30px;
+        margin-bottom: 20px; /* Add space between buttons */
     }
+
+
 
         .menu button:hover {
             background-color: #6b5733;
         }
 
+        .menu button header {
+            text-align: center;
+        }
+
+        .menu button h2 {
+            font-size: 20px;
+        }
+
+        .menu button p {
+            font-size: 16px;
+            margin-top: 5px;
+        }
 
 
 #startButton,
 #optionsButton,
 #leaderboardButton {
+    
     width: 100%;
     border: none; /* Remove border for individual buttons */
     border-radius: 8px;
@@ -83,5 +110,59 @@ canvas {
     border: none;
     border-radius: 8px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-        
+}
+
+#lbinp {
+    display: none;
+    position: absolute;
+    top: 20px; /* Distance from the top */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+    padding: 20px; /* Add padding */
+    text-align: center; /* Align text to the center */
+}
+
+#lbForm {
+    max-width: 600px;
+    margin: 0 auto; /* Center leaderboard horizontally */
+    padding: 20px;
+    background-color: #f0d79a; /* Light yellow background for the container */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Slight shadow */
+}
+
+#lbPage {
+    display: none;
+    position: absolute;
+    top: 20px; /* Distance from the top */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+    padding: 20px; /* Add padding */
+    text-align: center; /* Align text to the center */
+}
+
+    #lbPage header {
+        margin-bottom: 20px;
+    }
+
+
+
+#leaderboardList {
+    max-width: 100%; /* Set maximum width to 100% */
+    margin: 20px auto; /* Center leaderboard horizontally and add space around it */
+    padding: 20px; /* Add padding */
+    background-color: #f0d79a; /* Light yellow background for the container */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Slight shadow */
+    font-size: 18px; /* Increase font size */
+    line-height: 2; /* Increase line height for spacing */
+}
+
+    #leaderboardList li {
+        margin-bottom: 10px; /* Add spacing between player entries */
+    }
+
+#opPage {
+    display: none;
+
 }

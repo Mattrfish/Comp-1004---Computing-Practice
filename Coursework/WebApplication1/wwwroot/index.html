@@ -13,25 +13,87 @@
             <p>Challenge yourself in this nostalgic golf experience!</p>
         </header>
         <div class="menu">
-            <button id="startButton">Start</button>
-            <button id="optionsButton">Options</button>
-            <button id="lboardButton">Leaderboard</button>
+            <button id="startButton">
+                <h2>Start Game</h2>
+                <p>Begin your golfing adventure!</p>
+            </button>
+            <button id="opButton">
+                <h2>Options</h2>
+                <p>Take a look at the controls!</p>
+            </button>
+            <button id="lbButton">
+                <h2>Leaderboard</h2>
+                <p>Check out the top players!</p>
+            </button>
+            <button id="exButton">
+                <h2>Exit</h2>
+                <p>Exit the game!</p>
+            </button>
         </div>
 
     </section>
 
     <main>
         <canvas id="canvas"></canvas>
-        <button id="playButton">Press play to continue</button>
+
     </main>
 
-    <div id="lboard" style="display: none;">
-        <h2>Leaderboard</h2>
-        <ul id="lboardList"></ul>
-        <input type="text" id="playerNameInput" placeholder="Enter your name">
-        <button id="saveButton">Save Score</button>
-        <button id="exitButton">Exit Leaderboard</button>
+    <div id="lbinp">
+        <header>
+            <h1>You have finished the game!</h1>
+            <p>Please enter your name</p>
+        </header>
+        <form id="lbForm">
+
+            Player Name:
+            <input type="text" id="pname" />
+            <input type="submit" value="Submit" />
+        </form>
+
     </div>
+
+    <div id="lbPage">
+        <header>
+            <h1>Leaderboard</h1>
+            <p>Take a look at the top 10 players!</p>
+        </header>
+        <ul id="leaderboardList"></ul>
+        <button id="exit">Press to go back to menu</button>
+    </div>
+
+    <section id="opPage">
+        <header>
+            <h1>Options</h1>
+            <p>Customize your gaming experience</p>
+        </header>
+        <div class="options">
+            <div class="option">
+                <h2>Controls</h2>
+                <p>
+                    Left click and drag to move ball.
+                    If ball has stopped dragging, 1 shot has been taken.
+                    Get the ball in the hole in as little as shots as possible.
+                    There are 9 holes to complete.
+                    The lowest scores will be in the top 10 leaderboard.
+                </p>
+            </div>
+            <div class="option">
+                <h2>Ball Color</h2>
+                <input type="color" id="ballColorPicker" value="#ffffff">
+            </div>
+            <div class="option">
+                <h2>Time Limit</h2>
+                <input type="checkbox" id="timeLimitCheckbox">
+                <label for="timeLimx">Enable Time Limit</label>
+            </div>
+            <!-- Add more options as needed -->
+        </div>
+        <button id="saveOp">Save</button>
+        <button id="exit1">Press to go back to menu</button>
+    </section>
+
+
+
     <script src="js/script.js"></script>
 </body>
 </html>
