@@ -311,20 +311,14 @@
         update();
         displayScore(); // Display score on each frame
         requestAnimationFrame(gameLoop);
-        if (timeLimitEnabled) {
-            if (timeRemaining <= 0) {
-                endGame(); // Call endGame function when time runs out
-                return;
-            }
-            timeRemaining -= deltaTime; // Subtract deltaTime from timeRemainin
-        }
+        
     }
     
     // Event listener for the start button
     startButton.addEventListener("click", function () {
         // Record the current time when the player clicks "Start"
         startTime = new Date();
-        startGame(); // Start the game
+        
     });
 
     
@@ -381,7 +375,7 @@
 
     }
 
-    document.getElementById("exit").addEventListener("click", function () {
+    document.getElementById("exitlb").addEventListener("click", function () {
         // Hide leaderboard
         lbPage.style.display = "none";
         // Display menu
@@ -431,10 +425,10 @@
         function saveOptions() {
 
             ball.color = ballCol.value;
-            const timeLimitEnabled = document.getElementById("timeLimitCheckbox").checked;
-            
-            localStorage.setItem("timeLimitEnabled", timeLimitEnabled);
+           
 
         }
+
+    
 
 });

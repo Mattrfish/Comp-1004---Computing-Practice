@@ -8,7 +8,7 @@ body, html {
     display: flow;
     align-items: center;
     justify-content: center;
-    background-color: #e0e0e0;
+    background-color: #fff;
     background-image: url("../img/golf.jpg");
     background-size: cover;
     display: flex;
@@ -20,7 +20,6 @@ header {
     text-align: center;
     padding: 20px;
     border-radius: 10px;
-    margin-bottom: 20px;
     width: 70vw; /* Set width to 70% of viewport width */
     max-width: 600px; /* Limit maximum width */
     margin: 20px auto; /* Center horizontally and add space from the top */
@@ -31,7 +30,7 @@ header {
         font-size: 2em;
         margin-bottom: 10px;
         color: white; /* White text for header */
-    }
+     }
 
   
 
@@ -104,14 +103,6 @@ canvas {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-#playButton {
-    display: none;
-    width: 100%;
-    border: none;
-    border-radius: 8px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
 #lbinp {
     display: none;
     position: absolute;
@@ -134,7 +125,7 @@ canvas {
 #lbPage {
     display: none;
     position: absolute;
-    top: 20px; /* Distance from the top */
+    top: 0px; /* Distance from the top */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Adjust for centering */
     padding: 20px; /* Add padding */
@@ -142,7 +133,7 @@ canvas {
 }
 
     #lbPage header {
-        margin-bottom: 20px;
+        margin-bottom: 0px;
     }
 
 
@@ -159,10 +150,44 @@ canvas {
 }
 
     #leaderboardList li {
-        margin-bottom: 10px; /* Add spacing between player entries */
+        margin-bottom: 5px; /* Add spacing between player entries */
     }
 
 #opPage {
     display: none;
+    position: absolute;
+    top: 0px; /* Distance from the top */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+    padding: 20px; /* Add padding */
+    text-align: center; /* Align text to the center */
+}
 
+#option1,
+#option2{
+    
+    width: 50vw; /* Set width to 70% of viewport width */
+    margin: 20px auto; /* Center menu horizontally and add space from the top */
+    padding: 10px;
+    text-align: center;
+    background-color: #f0d79a; /* Light yellow background for the container */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Slight shadow */
+}
+.options p{
+    display: block; /* Ensure buttons are stacked */
+    width: 90%;
+    font-size: 1em; /* Set font size */
+    padding: 15px 30px; /* Set padding for buttons */
+    background-color: #9a7d4f; /* Brownish color for buttons */
+    color: #fff;
+    border: 2px solid #9a7d4f;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    margin-bottom: 20px; /* Add space between buttons */
+}
+
+#lbPage button,
+#opPage button{
+    cursor: pointer;
 }
