@@ -11,13 +11,27 @@
     const opPage = document.getElementById("opPage");
     const ballCol = document.getElementById("ballColorPicker");
     const saveOp = document.getElementById("saveOp");
+    var gameSound = document.getElementById("gameSound");
+    var gameSound1 = document.getElementById("gameSound1");
+    var gameSound2 = document.getElementById("gameSound2");
+    var gameSound3 = document.getElementById("gameSound3");
+    var gameSound4 = document.getElementById("gameSound4");
     canvas.style.display = "none";
     // Set canvas size
     canvas.width = window.innerWidth * 0.8 ; // Adjust as needed
     canvas.height = window.innerHeight * 0.8; // Adjust as needed
 
-    
+    // Function to play the sound
+    function playSound() {
+        gameSound.play();
+    }
+    function pauseSound() {
+        gameSound.pause();
+        
+    }
 
+    document.addEventListener("click", playSound);
+    
     // Ball properties
     const ball = {
         x: 50,
@@ -84,10 +98,12 @@
 
     // Function to start the game
     function startGame() {
+        document.addEventListener("click", pauseSound);
         canvas.style.display = "block"; // Show the canvas
         menu.style.display = "none";
         randomizeTerrain(); // Randomize water and sand positions
-        gameLoop(); // Start the game loop
+        gameLoop(); // Start the game looP
+        gameSound4.play();
     }
 
 
@@ -218,6 +234,9 @@
             // Reset ball velocity to zero to prevent further movement
             ball.velocityX = 0;
             ball.velocityY = 0;
+
+            //play sound
+            gameSound3.play()
         }
 
     }
@@ -267,6 +286,7 @@
         isDragging = true;
         dragStart.x = event.clientX;
         dragStart.y = event.clientY;
+        gameSound1.play()
     });
 
     canvas.addEventListener("mousemove", function (event) {
@@ -274,6 +294,7 @@
             // Calculate velocity based on drag distance
             ball.velocityX = (event.clientX - dragStart.x) * 0.05; // Adjust this multiplier as needed
             ball.velocityY = (event.clientY - dragStart.y) * 0.05;
+
         }
     });
 
@@ -282,6 +303,7 @@
             isDragging = false;
             // Increment score when releasing mouse button after dragging
             score++;
+            
         }
         // Reset velocity after releasing mouse button
         ball.velocityX = 0;
@@ -318,11 +340,14 @@
     startButton.addEventListener("click", function () {
         // Record the current time when the player clicks "Start"
         startTime = new Date();
-        
+        startGame();
+        pauseSound();
     });
+
 
     
     function endGame() {
+        gameSound4.pause()
         canvas.style.display = "none";
         lbinp.style.display = "block";
         //Record the current time when the player finishes the last level
@@ -380,6 +405,7 @@
         lbPage.style.display = "none";
         // Display menu
         menu.style.display = "block";
+        
     });
 
     function resetGame() {
@@ -430,5 +456,9 @@
         }
 
     
+   
+    
+
+
 
 });
