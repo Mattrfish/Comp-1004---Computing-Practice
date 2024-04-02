@@ -1,30 +1,34 @@
 ﻿document.addEventListener("DOMContentLoaded", function () {
+    //gathering ids from html
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
     const startButton = document.getElementById("startButton");
     const menu = document.getElementById("homePage");
-    const playButton = document.getElementById("playButton");
-    const lbButton = document.getElementById("lbButton"); 
     const lbinp = document.getElementById("lbinp");
     const lbPage = document.getElementById("lbPage");
     const opButton = document.getElementById("opButton");
     const opPage = document.getElementById("opPage");
     const ballCol = document.getElementById("ballColorPicker");
-    const saveOp = document.getElementById("saveOp");
     var gameSound = document.getElementById("gameSound");
     var gameSound1 = document.getElementById("gameSound1");
     var gameSound2 = document.getElementById("gameSound2");
     var gameSound3 = document.getElementById("gameSound3");
     var gameSound4 = document.getElementById("gameSound4");
+    var gameSound5 = document.getElementById("gameSound5");
+    var gameSound6 = document.getElementById("gameSound6");
+    var gameSound7 = document.getElementById("gameSound7");
     canvas.style.display = "none";
     // Set canvas size
     canvas.width = window.innerWidth * 0.8 ; // Adjust as needed
     canvas.height = window.innerHeight * 0.8; // Adjust as needed
 
     // Function to play the sound
-    function playSound() {
-        gameSound.play();
+    function playSound(event) {
+        if (event.target.id === "homepage" || event.target.id === "lbButton" || event.target.id === "opButton" ) {
+            gameSound.play();
+        }
     }
+
     function pauseSound() {
         gameSound.pause();
         
@@ -201,7 +205,7 @@
         const waterDistance = Math.sqrt((ball.x - water.x) ** 2 + (ball.y - water.y) ** 2);
         if (waterDistance < ball.radius + water.radius) {
             // Ball is in water
-            
+            gameSound7.play()
             alert("Ball has landed in water, Try again!")
             isDragging = false; //stops ball glitching/moving
             score++; //doesnt add score when hits water so added it here
@@ -211,7 +215,7 @@
         //check collision with sand
         const sandDistance = Math.sqrt((ball.x - sand.x) ** 2 + (ball.y - sand.y) ** 2);
         if (sandDistance < ball.radius + sand.radius) {
-           
+            gameSound6.play()
             alert("Ball has landed in sand, oops!")
             isDragging = false;
             score++; //adds 2 to score 
@@ -347,7 +351,8 @@
 
     
     function endGame() {
-        gameSound4.pause()
+        gameSound5.play();
+        gameSound4.pause();
         canvas.style.display = "none";
         lbinp.style.display = "block";
         //Record the current time when the player finishes the last level
