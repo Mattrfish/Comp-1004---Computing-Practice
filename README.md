@@ -7,4 +7,6 @@ This repository contains the code for the web-application as well as the project
 
  I have also used the Kanban board which has helped me keep track of all the tasks for the project. 
 
+ The code for thee project is in "Main program" and then "WWWroot" folder.
+ 
 
