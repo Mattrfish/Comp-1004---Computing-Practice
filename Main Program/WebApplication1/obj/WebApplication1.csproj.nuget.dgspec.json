@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Github\\Comp-1004---Computing-Practice\\Coursework\\WebApplication1\\WebApplication1.csproj": {}
+    "C:\\Users\\Matthew\\Github\\COMP1004 - HTML-CSS-and-JAVA\\Main Program\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "C:\\Github\\Comp-1004---Computing-Practice\\Coursework\\WebApplication1\\WebApplication1.csproj": {
+    "C:\\Users\\Matthew\\Github\\COMP1004 - HTML-CSS-and-JAVA\\Main Program\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Github\\Comp-1004---Computing-Practice\\Coursework\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "C:\\Users\\Matthew\\Github\\COMP1004 - HTML-CSS-and-JAVA\\Main Program\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "C:\\Github\\Comp-1004---Computing-Practice\\Coursework\\WebApplication1\\WebApplication1.csproj",
-        "packagesPath": "C:\\Users\\mattr\\.nuget\\packages\\",
-        "outputPath": "C:\\Github\\Comp-1004---Computing-Practice\\Coursework\\WebApplication1\\obj\\",
+        "projectPath": "C:\\Users\\Matthew\\Github\\COMP1004 - HTML-CSS-and-JAVA\\Main Program\\WebApplication1\\WebApplication1.csproj",
+        "packagesPath": "C:\\Users\\Matthew\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Matthew\\Github\\COMP1004 - HTML-CSS-and-JAVA\\Main Program\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\mattr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Matthew\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -62,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
