@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <section id="homePage">
+    <section id="homePage"> <<!--Main Menu-->
         <header>
             <h1>Retro Golf</h1>
             <p>Challenge yourself in this nostalgic golf experience!</p>
@@ -31,14 +31,14 @@
             </button>
         </div>
 
-    </section>
+    </section><<!--Main menu ends here-->
 
     <main>
-        <canvas id="canvas"></canvas>
+        <canvas id="canvas"></canvas> <<!--Sets canvas-->
 
     </main>
 
-    <div id="lbinp">
+    <div id="lbinp"> <<!--Enter name for leaderbaord (Game over screen)-->
         <header>
             <h1>You have finished the game!</h1>
             <p>Please enter your name</p>
@@ -50,24 +50,24 @@
             <input type="submit" value="Submit" />
         </form>
 
-    </div>
+    </div> <<!--Game over ends here-->
 
-    <div id="lbPage">
+    <div id="lbPage"> <<!--Leaderboard page-->
         <header>
             <h1>Leaderboard</h1>
             <p>Take a look at the top 10 players!</p>
         </header>
         <ul id="leaderboardList"></ul>
         <button id="exitlb">Press to go back to menu</button>
-    </div>
+    </div> <<!--Leaderboard ends here-->
 
-    <section id="opPage">
+    <section id="opPage"> <<!--Options Menu section-->
         <header>
-            <h1>Options</h1>
+            <h1>Options</h1> 
             <p>Customize your gaming experience</p>
         </header>
         <div class="options">
-            <div id="option1">
+            <div id="option1"> <<!--Help option-->
                 <h2>Controls</h2>
                 <p>
                     Left click and drag to move ball.
@@ -77,17 +77,17 @@
                     The lowest scores will be in the top 10 leaderboard.
                 </p>
             </div>
-            <div id="option2">
+            <div id="option2"> <<!--Change ball colour-->
                 <h2>Ball Color</h2>
                 <p>Change the colour wheel to set the ball colour</p>
                 <input type="color" id="ballColorPicker" value="#ffffff">
             </div>
-            <!-- Add more options as needed -->
+          
         </div>
         <button id="saveOp">Save</button>
         <button id="exit1">Press to go back to menu</button>
-    </section>
-
+    </section> <<!--Options ends here-->
+    <<!--All sounds used in the game below-->
     <audio id="gameSound" src="mp3/gameMusic.mp3" preload="auto"></audio>
     <audio id="gameSound1" src="mp3/lightHit.wav" preload="auto"></audio>
     <audio id="gameSound2" src="mp3/hardHit.wav" preload="auto"></audio>
@@ -96,6 +96,6 @@
     <audio id="gameSound5" src="mp3/win.mp3" preload="auto"></audio>
     <audio id="gameSound6" src="mp3/sand.mp3" preload="auto"></audio>
     <audio id="gameSound7" src="mp3/water.mp3" preload="auto"></audio>
-    <script src="js/script.js"></script>
+    <script src="js/script.js"></script> <<!--Gets the js file-->
 </body>
 </html>
